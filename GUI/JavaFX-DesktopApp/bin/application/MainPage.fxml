@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="531.0" prefWidth="796.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.mainPageCOntroller">
+   <children>
+      <AnchorPane prefHeight="533.0" prefWidth="796.0">
+         <children>
+            <MenuBar prefHeight="29.0" prefWidth="796.0">
+              <menus>
+                <Menu mnemonicParsing="false" text="File">
+                  <items>
+                    <MenuItem mnemonicParsing="false" onAction="#closeApp" text="Close" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Edit">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Delete" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="About" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+            <SplitPane dividerPositions="0.22921914357682618" layoutY="28.0" prefHeight="506.0" prefWidth="796.0">
+              <items>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="176.0">
+                     <children>
+                        <ListView fx:id="listView" layoutY="-1.0" onMousePressed="#listSelection" prefHeight="504.0" prefWidth="159.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                  </AnchorPane>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="504.0" prefWidth="633.0" style="-fx-background-color: gray;">
+                     <children>
+                        <Label fx:id="response" alignment="TOP_CENTER" contentDisplay="CENTER" layoutY="286.0" prefHeight="29.0" prefWidth="608.0" text="Please Select a program from the list view" textFill="WHITE" AnchorPane.bottomAnchor="189.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="286.0">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <ImageView fitHeight="219.0" fitWidth="244.0" layoutX="205.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="252.0" AnchorPane.leftAnchor="205.0" AnchorPane.rightAnchor="187.51336669921875" AnchorPane.topAnchor="33.0">
+                           <image>
+                              <Image url="@Large_logo.png" />
+                           </image>
+                        </ImageView>
+                        <AnchorPane fx:id="speedOfSound" layoutY="315.0" prefHeight="189.0" prefWidth="611.0" visible="false">
+                           <children>
+                              <Label fx:id="shortAnswer" alignment="CENTER" contentDisplay="CENTER" layoutX="291.0" layoutY="95.0" prefHeight="27.0" prefWidth="160.0" textFill="WHITE">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="timeInput" alignment="CENTER" layoutX="45.0" layoutY="95.0" prefHeight="27.0" prefWidth="239.0" style="-fx-background-insets: 0; -fx-background-radius: 0;" />
+                              <Button layoutX="463.0" layoutY="95.0" mnemonicParsing="false" onAction="#calcSpeedOfSound" style="-fx-background-insets: 0; -fx-background-radius: 0;" text="CALCULATE" />
+                              <Label fx:id="longAnswer" alignment="CENTER" contentDisplay="CENTER" layoutX="3.0" layoutY="33.0" prefHeight="22.0" prefWidth="608.0" text="Enter the amount of time to calculate the distance" textFill="WHITE">
+                                 <font>
+                                    <Font size="17.0" />
+                                 </font>
+                              </Label>
+                              <Separator layoutX="18.0" layoutY="70.0" prefHeight="5.0" prefWidth="572.0" />
+                              <Separator layoutX="18.0" layoutY="14.0" prefHeight="5.0" prefWidth="572.0" />
+                              <ButtonBar layoutX="14.0" layoutY="128.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="40.0" prefWidth="284.0" style="-fx-background-insets: 0; -fx-background-radius: 0;">
+                                 <buttons>
+                                    <ToggleButton fx:id="secondsToggle" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#timeMeth" selected="true" style="-fx-translate-x: 10; -fx-background-radius: 0; -fx-background-insets: 0;" text="SECONDS" textAlignment="CENTER">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="tg" />
+                                       </toggleGroup>
+                                    </ToggleButton>
+                                    <ToggleButton fx:id="minutesToggle" mnemonicParsing="false" onMouseClicked="#timeMeth" style="-fx-background-radius: 0; -fx-background-insets: 0;" text="MINUTES" toggleGroup="$tg" />
+                                    <ToggleButton fx:id="hoursToggle" mnemonicParsing="false" onMouseClicked="#timeMeth" style="-fx-translate-x: -15; -fx-background-radius: 0; -fx-background-insets: 0;" text="HOURS" toggleGroup="$tg" />
+                                 </buttons>
+                              </ButtonBar>
+                              <ButtonBar layoutX="274.0" layoutY="128.0" prefHeight="40.0" prefWidth="160.0">
+                                 <buttons>
+                                    <ToggleButton fx:id="kmToggle" mnemonicParsing="false" onMouseClicked="#distancemeth" selected="true" style="-fx-background-insets: 0; -fx-background-radius: 0; -fx-translate-x: 11;" text="KM">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="tt" />
+                                       </toggleGroup>
+                                    </ToggleButton>
+                                    <ToggleButton fx:id="milesToggle" mnemonicParsing="false" onMouseClicked="#distancemeth" style="-fx-background-insets: 0; -fx-background-radius: 0;" text="MILES" toggleGroup="$tt" />
+                                 </buttons>
+                              </ButtonBar>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="temperatureConversion" layoutY="315.0" prefHeight="189.0" prefWidth="611.0" visible="false">
+                           <children>
+                              <Label layoutX="134.0" layoutY="138.0" text="CELSUIS" textFill="WHITE">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="shortAnswer1" alignment="CENTER" contentDisplay="CENTER" layoutX="300.0" layoutY="95.0" prefHeight="27.0" prefWidth="113.0" textFill="WHITE">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="celsuis" alignment="CENTER" layoutX="89.0" layoutY="95.0" style="-fx-background-insets: 0; -fx-background-radius: 0;" />
+                              <Label layoutX="307.0" layoutY="138.0" text="FAHRENHEIT" textFill="WHITE">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <Button layoutX="456.0" layoutY="95.0" mnemonicParsing="false" onAction="#calcTemperature" style="-fx-background-insets: 0; -fx-background-radius: 0;" text="CALCULATE" />
+                              <Label fx:id="longAnswer1" alignment="CENTER" contentDisplay="CENTER" layoutX="3.0" layoutY="33.0" prefHeight="22.0" prefWidth="608.0" text="Enter values to convert " textFill="WHITE">
+                                 <font>
+                                    <Font size="17.0" />
+                                 </font>
+                              </Label>
+                              <Separator layoutX="18.0" layoutY="70.0" prefHeight="5.0" prefWidth="572.0" />
+                              <Separator layoutX="18.0" layoutY="14.0" prefHeight="5.0" prefWidth="572.0" />
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+              </items>
+            </SplitPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
