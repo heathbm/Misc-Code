@@ -9,14 +9,20 @@ public class Bubble {
 			System.out.println(" " + nums[i]);
 		System.out.println();
 				
+		int swaps = -1;
+		
 		//This is bubble sort
-		for(int i = 1; i < nums.length; i++) {
+		while(swaps != 0) {
+			
+			swaps =  0;
+			
 			for(int j = 0; j < nums.length - 1; j++) {
 			
 				System.out.println("at: " + j + " Is " + nums[j] + " > " + nums[j+1]  + 
 						" at: " + (j+1) + " " + (nums[j]>nums[j+1]));
 				
 				if(nums[j] > nums[j+1]) { // compare adjacent pairs
+					swaps += 1;
 					int temp = nums[j+1];
 					nums[j+1] = nums[j];
 					nums[j] = temp;
