@@ -3,30 +3,31 @@ public class Bubble {
 		
 		int nums[] = { 99, -10, 100123, 18, -978, 5623, 463, -9, 287, 49};
 		
-		int a, b, t;
-		int size;
-		
-		size = 10; //Number of elements to sort
-		
 		//display original array
 		System.out.print("Original array is:");
-		for(int i = 0; i < size; i++)
+		for(int i = 0; i < nums.length; i++)
 			System.out.println(" " + nums[i]);
 		System.out.println();
-		
+				
 		//This is bubble sort
-		for(a = 1; a < size; a++)
-			for(b = size - 1; b >= a; b--){
-				if(nums[b-1] > nums[b]){ //if out of order
-					//exchange elements
-					t = nums[b-1];
-					nums[b-1] = nums[b];
-					nums[b] = t;
+		for(int i = 1; i < nums.length; i++) {
+			for(int j = 0; j < nums.length - 1; j++) {
+			
+				System.out.println("at: " + j + " Is " + nums[j] + " > " + nums[j+1]  + 
+						" at: " + (j+1) + " " + (nums[j]>nums[j+1]));
+				
+				if(nums[j] > nums[j+1]) { // compare adjacent pairs
+					int temp = nums[j+1];
+					nums[j+1] = nums[j];
+					nums[j] = temp;
 				}
+				
 			}
+		}
+		
 		//display sorted array
 		System.out.println("Sorted array is:");
-		for(int i = 0; i < size; i++)
+		for(int i = 0; i < nums.length; i++)
 			System.out.println(" " + nums[i]);
 		System.out.println();
 	}
