@@ -1,7 +1,7 @@
 import java.time.Duration;
 import java.time.Instant;
 
-class Quicksort{
+class sort{
 	
 	public static void insertionSort(int array[]) {
         for (int i = 1; i < array.length; i++) {
@@ -28,7 +28,7 @@ class Quicksort{
 	}
 }
 
-public class QSDemo {
+public class InsertionSort {
 	public static void main(String[] args) {
 		
 		int a[] = { 76,4,43,131,566,585,321,13,31,34,5,645,654};
@@ -42,7 +42,7 @@ public class QSDemo {
 		
 		Instant startTime = Instant.now();
 
-		Quicksort.insertionSort(a);
+		sort.insertionSort(a);
 		
 		Instant endTime = Instant.now();
 		
@@ -59,7 +59,7 @@ public class QSDemo {
 				
 		startTime = Instant.now();
 		
-		Quicksort.insertionSort(b);
+		sort.insertionSort(b);
 		
 		endTime = Instant.now();
 		
