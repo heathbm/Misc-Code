@@ -2,60 +2,73 @@ import java.time.Duration;
 import java.time.Instant;
 
 class Quicksort{
-	static void qsort(char items[]){
-		qs(items, 0, items.length-1);
-	}
 	
-	//a recursive version of Quicksort for characters
-	private static void qs(char items[], int left, int right){
-		int i, j;
-		char x, y;
-		
-		i = left; j = right;
-		x = items[(left+right)/2];
-		
-		do{
-			while((items[i] < x) && (i < right)) i++;
-			while((x < items[j]) && (j > left)) j--;
-			
-			if(i <= j){
-				y = items[i];
-				items[i] = items[j];
-				items[j] = y;
-				i++; j--;
-			}
-		} while(i <= j);
-		
-		if(left < j) qs(items, left, j);
-		if(i < right) qs(items, i, right);
+	public static void insertionSort(int array[]) {
+        for (int i = 1; i < array.length; i++) {
+            int key = array[i];
+            int j = i-1;
+            while ( (j > -1) && ( array [j] > key ) ) {
+                array [j+1] = array [j];
+                j--;
+            }
+            array[j+1] = key;
+        }
+    }
+	
+	public static void insertionSort(char array[]) {
+        for (int i = 1; i < array.length; i++) {
+            char key = array[i];
+            int j = i-1;
+            while ( (j > -1) && ( array [j] > key ) ) {
+                array [j+1] = array [j];
+                j--;
+            }
+            array[j+1] = key;
+        }
 	}
 }
 
 public class QSDemo {
 	public static void main(String[] args) {
 		
-		char a[] = { 'd', 'x', 'a', 'r', 'p', 'j', 'i' };
-		int i;
+		int a[] = { 76,4,43,131,566,585,321,13,31,34,5,645,654};
+		char b[] = { 'f', 'j', 'a', 'r', 'h', 'j', 'w', 'n', 'e', 't', 'z', 'b', 'o'};
 		
 		System.out.println("Original array: ");
-		for(i = 0; i < a.length; i++)
-			System.out.print(a[i]);
+		for(int 	i = 0; i < a.length; i++)
+			System.out.print(a[i] + ",");
 		
-		System.out.println();
+		System.out.println("\n");
 		
 		Instant startTime = Instant.now();
-		
-		//now, sort the array
-		Quicksort.qsort(a);
+
+		Quicksort.insertionSort(a);
 		
 		Instant endTime = Instant.now();
 		
 		System.out.println("Sorted array: ");
-		for(i = 0; i < a.length; i++)
+		for(int i = 0; i < a.length; i++)
 			System.out.println(a[i]);
+		
+		System.out.println("");
+		System.out.println("Original array: ");
+		for(int 	i = 0; i < b.length; i++)
+			System.out.print(b[i] + ",");
+		
+		System.out.println("Time taken: " + Duration.between(endTime, startTime) + "\n");
+				
+		startTime = Instant.now();
+		
+		Quicksort.insertionSort(b);
+		
+		endTime = Instant.now();
+		
+		System.out.println("Sorted array: ");
+		for(int i = 0; i < b.length; i++)
+			System.out.println(b[i]);
 		
 		System.out.println("Time taken: " + Duration.between(endTime, startTime));
 		
 		}
-	}
+}
 
