@@ -1,7 +1,3 @@
-import java.awt.event.FocusAdapter;
-
-import javax.swing.FocusManager;
-
 public class Bst {
 
 	Node root;
