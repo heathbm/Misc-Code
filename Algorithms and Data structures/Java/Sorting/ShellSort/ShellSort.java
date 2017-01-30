@@ -1,4 +1,31 @@
 public class ShellSort {
+	
+	public static void shellSort(int[] list) {
+		
+		int temp, i, j, k;
+		int gap = (int) list.length / 2;
+
+		while (gap != 0) { // iterate with all gaps sizes until gap reaches 0
+
+			for (i = 0; i < list.length; i += gap) { // iterate with current gap size
+	
+				j = i;
+				while((j - gap) >= 0 && list[j - gap] > list[j]) {
+					
+					temp = list[j];
+					list[j] = list[j - gap];
+					list[j - gap] = temp;
+
+					j -= gap;
+					
+				}
+
+			}
+		
+			gap = (int)(gap/2);
+		
+		}
+	}
 
 	public static void main(String[] args) {
 		
@@ -9,44 +36,20 @@ public class ShellSort {
 		for (int i = 0; i < list.length; i++) {
 			System.out.print(list[i] + ",");
 		}
-
-		System.out.println("\n");
-		long start = System.nanoTime();    
 		
-		int gap = (int) list.length / 2;
-
-		while (gap != -1) {
-
-			System.out.println("gap: " + gap);
-
-			for (int i = 1; i < list.length; i++) {
-				int j = i;
-				while ((j != 0 && (j + gap) < list.length) && list[j + gap] < list[j - 1]) {
-
-					int temp = list[j - 1];
-					list[j - 1] = list[j + gap];
-					list[j + gap] = temp;
-
-					j--;
-				}
-			}
+		long start = System.nanoTime();  
 		
-			if(gap == 0) {
-				break;
-			}
-			gap = (int)(gap/2);
-		
-		}
+		shellSort(list);
 		
 		long elapsedTime = System.nanoTime() - start;
 		
-		System.out.println("\n\nSORTED:\n");
+		System.out.println("\n\nTime taken in nanoseconds: " + elapsedTime);
+		
+		System.out.println("\nSORTED:\n");
 		
 		for (int i = 0; i < list.length; i++) {
 			System.out.print(list[i] + ",");
 		}
-		
-		System.out.println("\n\nTime taken in nanoseconds: " + elapsedTime);
 		
 	}
 	
