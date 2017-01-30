@@ -3,7 +3,7 @@ public class ShellSort {
 	public static void shellSort(int[] list) {
 		
 		int temp, i, j, k;
-		int gap = (int) list.length / 2;
+		int gap = list.length / 2;
 
 		while (gap != 0) { // iterate with all gaps sizes until gap reaches 0
 
@@ -22,7 +22,7 @@ public class ShellSort {
 
 			}
 		
-			gap = (int)(gap/2);
+			gap /= 2;
 		
 		}
 	}
