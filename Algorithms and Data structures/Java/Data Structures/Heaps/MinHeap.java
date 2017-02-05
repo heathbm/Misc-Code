@@ -1,31 +1,15 @@
 import java.util.Arrays;
+import java.util.Random;
 
 public class MinHeap {
 	public static void main(String[] args) {
 		
 		MinIntHeap minHeap = new MinIntHeap(20);
-		
-		minHeap.add(10);
-		minHeap.add(7);
-		minHeap.add(20);
-		minHeap.add(34);
-		minHeap.add(2);
-		minHeap.add(5);
-		minHeap.add(55);
-		minHeap.add(10);
-		minHeap.add(7);
-		minHeap.add(20);
-		minHeap.add(34);
-		minHeap.add(2);
-		minHeap.add(5);
-		minHeap.add(55);
-		minHeap.add(34);
-		minHeap.add(2);
-		minHeap.add(5);
-		minHeap.add(55);
-		minHeap.add(10);
-		minHeap.add(7);
-		minHeap.add(20);
+			
+		Random random = new Random();
+		for (int i = 0; i < 15; i++) {
+			minHeap.add(random.nextInt(1000));
+		}
 		
 		minHeap.display();
 		System.out.println("");
@@ -154,9 +138,13 @@ class MinIntHeap {
 	
 	 public void heapSort() {
 		 int[] temp = new int[size];
-		 for(int i = 0; i < size; i++) {
-			 temp[i] = grab();
+		 int tempSize = size;
+		 
+		 for(int i = 0; size > 0; i++) {
+			 temp[i] = poll();
 		 }
+		 
+		 size = tempSize;
 		 items = temp;
 	 }
 
