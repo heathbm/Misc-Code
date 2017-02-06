@@ -126,7 +126,7 @@ class List {
 		return true;
 	}
 	
-		public boolean deleteData(int data) {
+	public boolean deleteData(int data) {
 		
 		Node parentNode = null;
 		Node currentNode = root;
