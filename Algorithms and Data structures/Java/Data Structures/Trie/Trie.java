@@ -22,14 +22,24 @@ class CharTrie {
 	
 	TrieNode[] rootTrieNode = new TrieNode[26];
 	
+	public char convertChar(char letter) {
+		return Character.toLowerCase(letter);
+	}
+	
+	public String convertString(String word) {
+		return word.toLowerCase();
+	}
+	
 	// (int)letter - 97 gives the index of the letter
 	public boolean findLetter(char letter) {
 		
-		return (rootTrieNode[helper.getIndex(letter)] != null);
+		return (rootTrieNode[helper.getIndex(convertChar(letter))] != null);
 		
 	}
 	
 	public void addLetter(char letter) {
+		
+		letter = convertChar(letter);
 		
 		if(findLetter(letter)) {
 			return;
@@ -40,6 +50,8 @@ class CharTrie {
 	}
 	
 	public void addWord(String word) {
+		
+		word = convertString(word);
 		
 		int index = helper.getIndex(word.charAt(0));
 		int charIndex = 0;
@@ -56,6 +68,8 @@ class CharTrie {
 	}
 	
 	public boolean findWord(String word) {
+		
+		word = convertString(word);
 				
 		// Looks in the rootTrie for the first letter of the word
 		if(!findLetter(word.charAt(0))) {
